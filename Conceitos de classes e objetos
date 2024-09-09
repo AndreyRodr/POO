@@ -1,0 +1,52 @@
+# Conceitos de classes e objetos
+
+  # Os objetos estão em todo lugar
+    - Pessoas, animais, plantas, carros, aviões, prédios, computadores etc
+
+  # Os humanos pensam em objetos
+
+  # Dois aspectos dos objetos
+    - Atributos: caracteristicas (substantivo)
+    - Métodos: comportamentos (verbo)
+
+    # Exemplos:
+
+    # Atributos:
+      - Tamanho, forma, cor, peso, velocidade etc
+
+    # Métodos:
+      - Bola (obj): rola, rebate, infla, murcha
+
+  # Definição de Classe
+
+    # É o "projeto" de um objeto
+      - Análoga à planta (classe) de uma casa (objeto)
+      - É possível construir várias casas com uma planta apenas
+      - Não se pode comer na cozinha de uma planta (classe), mas na cozinha real (objeto)
+
+  # Classes e Objetos
+
+    # Relação
+
+      - Um objeto é uma instância de uma classe
+        # O objeto é um caso particular de uma classe
+
+      - Cada instância de uma determinada classe tem suas próprias variáveis
+        # Os objetos BMW e Mercedes têm características semelhantes de um Automóvel, não iguais
+
+  # Objetos
+
+    # Definição
+      - Uma unidade de software composta por um conjunto de variáveis e métodos relacionados
+
+      - As variáveis e os métodos dependem da aplicação a que se destina o objeto
+        # A aplicação é que define o que deve ter no objeto
+
+    # Os métodos ENCAPSULAM as variáveis, protegendo-as de intereferência externa indevida
+
+  # Interface de um objeto
+    - Tudo o que é visível no objeto
+      - É constituída dos métodos e das variáveis públicas
+
+
+    
