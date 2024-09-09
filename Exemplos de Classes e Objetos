@@ -1,0 +1,22 @@
+# Objeto: Bicicleta
+- Atributos
+  - Velocidade
+  - Cadência dos pedais
+  - Marcha atual
+- Métodos
+  - Acelerar
+  - Frear
+  - Mudar a cadência dos pedais
+  - Mudar a marcha
+
+# Objeto: Cachorro
+- Atributos
+  - Nome
+  - Sexo
+  - Idade
+  - Peso
+- Métodos
+  - Latir
+  - Comer
+  - Correr
+  - Morder
