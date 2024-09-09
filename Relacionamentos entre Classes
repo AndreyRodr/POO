@@ -1,0 +1,50 @@
+# Importância dos relacionamentos
+  - Um programa é uma coleção de objetos
+  - Cada objeto deve ser especialista
+    - Atributos e métodos específicos
+  - Os objetos são interdependentes
+  - Há um relacionamento entre as classes
+    - Os objetos estão interligados
+
+# Vantagens da especialização
+  - Clareza de código
+    - É mais fácil de entender o que o sistema faz
+  - Facilidade de manutenção
+    - Os erros (bugs) ficam mais visíveis
+  - Simplicidade na reestruturação
+    - O crescimento da aplicação é mais prático
+
+# Relacionamentos entre classes
+  - Associação
+  - Herança
+  - Interface
+  - Agregação
+  - Composição
+
+# Mensagens
+  - Definição
+    - Mecanismo pelo qual um objeto "ativa" outro objeto, transferindo parâmetros e recebendo de volta o resultado dessa "ativação"
+  - É a comunicação entre objetos
+    - Permite a interação entre objetos
+    - É a chamada de um método para um dado objeto
+
+# Dinânmica da troca de mensagens
+  - O objeto chamador define
+    - O objeto para quem a mensagem é enviada
+    - O nome do método a ser chamado
+    - Os parâmetros necessários ao método
+  - O objeto que recebe a mensagem
+    - Seleciona o método adequado
+    - Realiza a operação
+    - Retorna o controle para o objeto chamador
+
+# Exemplo
+  - Objeto chamador: João
+    - Objeto alvo: bicicleta de João
+    - Método: mudar a marcha
+    - Parâmetro: quarta marcha
+  - Objeto alvo: Bicliceta de João
+    - Seleciona o método para mudar a marcha
+    - Chama o método que muda a sua marcha para a quarta marcha
+    - Retorna o controle para João
+  
