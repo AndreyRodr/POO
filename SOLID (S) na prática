@@ -1,0 +1,39 @@
+# cadastral_system.py
+
+  # Method with many responsibilities
+  class cadastralSystem:
+      def register(self, name, age):
+          if isinstance(name, str) and isinstance(age, int):
+              print('Acessing the database')  
+              print('Register the User {}, Age{}'.format(name,age))
+          else:
+              print('Invalid data!')
+
+# Main.py
+  from cadastral_system import CadastralSystem
+
+  mydata CadastralSystem()
+  mydata.register("Johnny",38)
+  print()
+  mydata.register("Kphmmt","hello")
+
+# NOVO cadastral_system.py
+  # Method with many responsibilities
+  class cadastralSystem:
+      def register(self, name, age):
+          if self.__verifyData(name,age):
+              self.__storeUser(name,age)
+          else:
+              self.__indicateError()
+
+      def __verifyData(self, name, age):
+          if isinstance(name,str) and isinstance(age,int):
+              return True
+          return False
+      
+      def __storeUser(self, name, age):
+          print("Acessing the database.")
+          print("Register the User {} with Age {}".format(name,age))
+          
+      def __indicateError(self):
+          print("Invalid Data!")
