@@ -1,0 +1,19 @@
+# Armazenamento de dados
+  - Atributos de instância
+    - Variáveis que pertencem a uma instância particular da classe
+    - Cada instância tem o seu próprio valor para o atributo
+    - São os mais frequentes em classes
+    - Exemplo: self.name
+
+  - Atributos de classe
+    - Variáveis que pertencem à classe como um todo
+    - Todas as instâncias da classe compartilham o mesmo atributo(valor)
+    - Conhecidos como "estáticos" em outras linguagens
+    - Se uma instância alterar, vale para todas instâncias
+    - Definidos na classe, mas fora dos métodos
+
+# Racional parecido para métodos
+  - Métodos de instância
+    - Já conhecemos
+  - Métodos de classe
+    - As operações refletem em todos os objetos
