@@ -1,0 +1,33 @@
+# store.py
+class Store:
+    tax = 103
+
+    def __init__(self, address):
+        self.__address = address
+
+    def showAddress(self):
+        print(self.__address)
+
+    @classmethod
+    def sell(cls):
+        return 100 * cls.tax
+
+    @classmethod
+    def setTax(cls, newTax):
+        cls.tax = newTax
+
+# main.py
+
+from store import Store
+
+store1 = Store('Comandathuba Beach')
+store2 = Store('Shopping')
+
+store1.showAddress()
+print(store1.sell())
+print(store2.sell())
+
+store1.setTax(1.5)
+
+print(store1.sell())
+print(store2.sell())
