@@ -1,0 +1,39 @@
+# Acrônimo SOLID
+  - Criado por Michael Feathers
+    - Aborda 5 princípios da OO e design de código
+    - Princípios de Robert C. Martin (Uncle Bob): artigo The Principles of OOD
+
+# SOLID
+  - Single Responsibility Principle
+    - Princípio da Responsabilidade Única
+  - Open-Closed principle
+    - Princípio Aberto-Fechado
+  - Liskov Substitution Principle
+    - Princípio da Substituição de LISKOV
+  - Interface Segregation Princíple
+    - Princípio da Segregação de Interfaces
+  - Dependency Inversion Principle
+    - Princípio da Inversão da Dependência
+
+# Objetivos
+  - Escrever códigos mais limpos
+  - Separar responsabilidades
+  - Diminuir acoplamentos
+  - Facilitar na refatoração
+  - Estimular reaproveitamento de código
+
+# Solid
+  - Single Responsibility Principle
+    - Princípio da Responsabilidade Única
+    - Uma classe deve ser especializada em um único assunto e possuir apenas ma responsabilidade dentro do software, ou seja, a classe deve ter uma única tarefa ou ação para executar
+    - Tentação: criar God Class (classe que faz tudo)  
+    - Problema: alterações comprometedoras!
+
+# Consequências
+  - Falta de coesão
+    - Uma classe não deve assumir responsabilidades que não são suas
+  - Alto acoplamento
+    - Mais responsabilidades geram um maior nível de dependências: sistema engessado e frágil para alterações
+  - Dificuldades de testes automatizados
+    - É difícil de "mockar" esse tipo de classe
+  - Dificuldades para reaproveitar o código
