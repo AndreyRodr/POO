@@ -1,0 +1,59 @@
+# dog.py
+class Dog:
+  kind = 'canine' # class variable shared by all instances
+
+  def __init__(self, name):
+      self.name = name # instance variable
+
+# main.py
+from dog import Dog
+
+mydog = Dog('Fox')
+yourdog = Dog('Buddy')
+print(mydog.name)
+print(mydog.kind)
+print()
+print(yourdog.name)
+print(yourdog.kind)
+
+# dog.py: efeitos inesperados
+
+class Dog:
+    tricks = []       # mistaken use of a class variable
+    def __init__(self, name):
+        self.name = name
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+# main.py
+
+from dog import Dog
+
+mydog = Dog('Fox')
+yourdog = Dog('Buddy')
+mydog.add_trick('roll over')
+yourdog.add_trick('play dead')
+print(mydog.tricks)
+
+# Solução dog.py
+
+class Dog:
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []      # Creates a new empty list for each dog
+        
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+# Solução main.py
+from dog import Dog
+
+mydog = Dog('Fox')
+yourdog = Dog('Buddy')
+mydog.add_trick('roll over')
+yourdog.add_trick('play dead')
+print(mydog.name)
+print(mydog.tricks)
+print()
+print(yourdog.name)
+print(yourdog.tricks)
