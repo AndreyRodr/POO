@@ -1,0 +1,95 @@
+ex 1:
+
+class Circus:
+    def show(self, type):
+        if type == 1:
+            self.showJuggler()
+        if type == 2:
+            self.showClown()
+
+    def showJuggler(self):
+        print("Juggler presenting his show")
+
+    def showClown(self):
+        print("Clown presenting his show")
+
+main.py:
+
+from circus import Circus
+
+myCircus = Circus()
+myCircus.show(1)
+myCircus.show(2)
+myCircus.show(3)
+
+
+# OBSERVAÇÕES
+ - P. da Responsabilidade única atendido
+ - Não dá para adicionar comportamento
+    - Só se alterar o código da classe
+ - Solução
+    - Remodelar classes fechadas passíveis de novos comportamentos, para serem classes abertas à extensão
+
+ex 2:
+# juggler.py
+class Juggler:
+    def presentShow(self):
+        print("Juggler presenting his show")
+# clown.py
+class Clown:
+    def presentShow(self):
+        print("Clown presenting his show")
+# novo circus.py
+class Circus:
+    def present(self,presenter: any):
+    presenter.present(show)
+
+# Novo main.py
+
+from clown import Clown
+from juggler import Juggler
+from circus import Circus
+
+myCircus = Circus()
+myJuggler = Juggler()
+myClown = Clown()
+
+myCircus.present(myJuggler)
+myCircus.present(myClown)
+
+
+# Quando usar o OCP?
+  - Quando entradas diferentes gerarem ações diferentes!
+
+# Outra abordagem: artist.py
+
+class Artist:
+    def __init__(self, type):
+        self.__tyoe = type
+
+    def present(self):
+        print(f"The {self.__type} is performing his show!")
+
+# circus.py
+
+from artist import Artist
+
+class Circus:
+    def presentShow(self, artist: Artist):
+        print("The show is starting!")
+        artist.present()
+        print("The audience is applauding!")
+
+# main.py
+
+from artist import Artist
+from circus import Circus
+
+myClown = Artist("clown")
+myJuggler = Artist("Juggler")
+myCircus = Circus()
+
+myCircus.presentShow(myClown)
+print()
+myCircus.presentShow(myJuggler)
+
