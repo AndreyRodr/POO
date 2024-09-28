@@ -1,5 +1,5 @@
-# databases.py
-
+# databases
+    # mysqlDB.py
 class MySQLDB:
 
     def __init__(self):
@@ -12,6 +12,7 @@ class MySQLDB:
     def disconnect(self):
         print("Disconnecting to Mysql database...")
 
+    # postgresDB.py
 class PostgresDB:
     def __init__(self):
         self.__conection = 'Postgres'
@@ -22,6 +23,10 @@ class PostgresDB:
 
     def disconnect(self):
         print("Disconnecting to Postgres database...")
+
+    # __init__.py
+from .mysqlDB import MySQLDB
+from .postgresDB import PostgresDB
 
 
 
