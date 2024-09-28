@@ -1,0 +1,63 @@
+# databases.py
+
+class MySQLDB:
+
+    def __init__(self):
+        self.__conection = 'MySQL'
+
+    def connect(self):
+        print("Connecting to Mysql database...")
+        return self.__conection
+
+    def disconnect(self):
+        print("Disconnecting to Mysql database...")
+
+class PostgresDB:
+    def __init__(self):
+        self.__conection = 'Postgres'
+
+    def connect(self):
+        print("connecting to Postgres database...")
+        return self.__conection
+
+    def disconnect(self):
+        print("Disconnecting to Postgres database...")
+
+
+
+# repository.py
+
+class Repository:
+    def select(self, dbConnection: any):
+        connection = dbConnection.connect()
+        print("I connected to the database {}".format(connection))
+        print("Doing a SELECT*FROM...")
+        dbConnection.disconnect()
+
+    def insert(self,dbConnection: any):
+        connection = dbConnection.connect()
+        print("I connected to the database {}".format(connection))
+        print("Doing an Insert values...")
+        dbConnection.disconnect()
+
+#main.py
+
+from repository import Repository
+from database import PostgresDB, MySQLDB
+
+dbConnPostgres = PostgresDB()
+dbConnMySQL = MySQLDB()
+myRepository = Repository()
+
+myRepository.insert(dbConnPostgres)
+print()
+myRepository.insert(dbConnMySQL)
+print()
+myRepository.select(dbConnMySQL)
+
+
+# Atendimento aos princípios
+  - Responsabilidade única
+      - Cada função faz uma única coisa
+  - Aberto-Fechado
+      - Para conectar outro SGBD, <não modificamos> o Repository: apenas estendemos adicionando uma classe novo do novo BD
