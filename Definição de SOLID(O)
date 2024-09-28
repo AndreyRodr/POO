@@ -1,0 +1,18 @@
+SOLID
+
+- (S)ingle Responsibility Principle
+  - Princípio da Responsabilidade única
+- (O)pen-Closed Principle
+  - Princípio Aberto-Fechado
+- (L)iskov Substitution Principle
+  - Princípio da Substituição de Liskov
+- (I)nterface Segregation Principle
+  - Princípio da Segregação de Interfaces
+- (D)ependency Inversion Principle
+  - Princípio da Inversão da Dependência
+
+# Open-Closed Principle
+  - Princípio Aberto-Fechado
+  - Objetos ou entidades devem estar <abertos para extensão>, mas <fechados para modificação>
+      - A entidade deve permitir que o seu comportamento seja estendido sem modificar o código-fonte
+      - Evita adição de bugs no que já está funcionando
