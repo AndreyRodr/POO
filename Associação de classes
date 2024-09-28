@@ -1,0 +1,58 @@
+Relacionamento entre classes
+
+  - Associação
+  - Herança
+  - Interface
+  - Agregação
+  - Composição
+
+Associação 
+  - Definição
+      - É a ligação mais simples entre classes
+      - É quando uma classe precisa de outro para executar uma tarefa
+  - É o tipo mais usado numa aplicação
+  - É representada por uma seta simples
+
+# Exemplo
+
+interruptor.py
+
+class Interruptor():
+    def __init__(self,room):
+        self.__room = room
+
+    def turnOn(self):
+        print("lighting the {}...".format(self.__room))
+
+    def turnOff(self):
+        print("turning off the {} light...".format(self.__room))
+
+
+# Person.py
+
+from typing import Type
+from interruptor import Interruptor
+
+class Person:
+
+    def turnOnTheLight(self, interruptor: Type[Interruptor]): # Instancia a classe Interruptor e cria um tipo através do Type
+        interruptor.turnOn()
+
+    def turnOffTheLight(self, interruptor: Type[Interruptor]):
+        interruptor.turnOff()
+
+    def sleep(self):
+        print("went to sleep...zzzz...")
+
+# main.py
+
+from typing import Type
+from interruptor import Interruptor
+
+somebody = Person()
+kitchenSwitch = Interruptor("kitchen")
+roomSwitch = Interruptor("room")
+
+somebody.turnOnTheLight(kitchenSwitch)
+somebody.turnOffTheLight(roomSwitch)
+somebody.sleep()
