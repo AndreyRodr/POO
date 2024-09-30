@@ -1,0 +1,79 @@
+# house.py
+
+class House:
+
+    def __init__(self):
+        self.__address = "Av. Paulista, 100"
+
+    def turnOnLights(self):
+        print("Turning on the lights...")
+
+    def getAdress(self):
+        return self.__address
+
+# person.py
+
+class Person:
+
+    def __init__(self, name):
+        self.__name = name
+
+    def enterThePlace(self, local: any):
+        local.turnOnLights()
+
+    def indicateTheAddress(self, local: any):
+        print(local.getAddress())
+
+# main.py
+
+from house import House
+from person import Person
+
+budHouse = House()
+mother = Person("Anne")
+
+mother.enterThePlace(budHouse)
+mother.indicateTheAddress(budHouse)
+
+# Novo person.py
+
+class Person:
+
+    def __init__(self, name, local: any):
+        self.__name = name
+        self.__local = local
+
+    def enterThePlace(self):
+        self.__local.turnOnLights()
+
+    def indicateTheAddress(self):
+        print(self.__local.getAddress())
+
+
+# Novo main.py
+
+from house import House
+from person import Person
+
+budHouse = House()
+mother = Person("Anne", budHouse)
+
+mother.enterThePlace()
+mother.indicateTheAdrdres()
+
+# Mais novo person.py
+
+from typing import Type
+from house import House
+
+class Person:
+
+    def __init__(self, name, local: Type[House]): # Permite que você veja os métodos de House
+        self.__name = name
+        self.__local = local
+
+    def enterThePlace(self):
+        self.__local.turnOnLights()
+
+    def indicateTheAddress(self):
+        print(self.__local.getAddress())
