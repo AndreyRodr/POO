@@ -1,0 +1,60 @@
+# Conceituando
+
+- Dependência
+  - Precisar de algo em termos de apoio: uma classe precisar de outra
+
+- Exemplo:
+  - Classe A usa uma funcionalidade da Classe B:
+    - Classe A depende da classe B
+    - A classe A precisa criar uma instância da Classe B
+
+- Definição de Injeção de Depedência
+  - É transferir a tarefa de criação do objeto a outra entidade e usar diretamente a dependência
+    - É uma relação de associação mais explícita
+
+- Objetivo:
+  - É um padrão de projeto usado para EVITAR o alto nível deacoplamento de código dentro de uma aplicação
+
+- Injeção de dependência
+  - É uma INVERSÃO DE CONTROLE: a responsabilidade de informar a implementação a ser utilizada deixa de ser da classe, e passa a ser do consumidor da classe
+  - Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações
+    - Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações
+
+# EXEMPLO:  
+  - Classe Carro depende da Classe Roda
+      - Carro instancia a Roda em TEMPO DE COMPILAÇÃO
+  - E se a Classe Roda mudar?
+      - Será necessário mudar a Classe Carro
+  - O que a DI fornece?
+      - Transferir a responsabilidade de instanciar a Roda para o TEMPO DE EXECUÇÃO ou fora de Carro
+
+# Tipos de Injeção de Dependência
+  - Injeção do construtor
+      - As dependências são fornecidas por meio de um construtor da classe
+  - Ineção pelo setter
+      - O cliente expõe o método setter que o injetor usa para injetar a dependência
+
+  - Injeção de interface
+      - A dependência fornece um método injetor, que injetará uma dependência em qualquer cliente que for passado a ele
+          - Os clientes devem implementar uma interface que expôe um método setter, que aceita a dependência
+
+# Responsabilidades da DI
+  - Criar os objetos
+  - Saber quais classes necessitam desses objetos
+  - Fornecer todos esses objetos
+      - Se há alguma mudança nos objetivos, a DI investiga isso e não deve preocupar a classe que usa esses objetos
+      - Se os objetos mudarem no futuro, é responsabilidade da DI fornecer os objetos apropriados à classe
+
+# Benefícios da DI
+  - Ajuda no teste unitário
+  - Há redução de código
+      - A inicialização das dependências é feita pelo componente injetor
+  - Facilita a ampliação da aplicação
+  - Cria acoplamento fraco
+      - importante na programação de aplicações
+
+# Desvantagens da DI
+  - É um pouco complexa de aprender
+      - Seu uso em ecesso pode levar a problemas de gerenciamento
+  - Transfere erros de compilação
+      - Muitos erros em tempo de compilação acabam no tempo de execução
