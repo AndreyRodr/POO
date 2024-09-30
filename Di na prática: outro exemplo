@@ -1,0 +1,114 @@
+O que fizemos?
+
+- Injetamos dependência forte
+  - Para a Pessoa existir, agora é preciso criar o local
+    - Este é o ponto cnetral da técnica
+- Di real é uma associação explícita
+
+# smartphone.py
+
+class Smartphone:
+
+    def __init__(self, model):
+        self.__model = model
+
+    def sendMessage(self, message):
+        print(f"Sending message: {message})
+
+    def verifyEmails(self):
+        print("Checking e-mails...")
+
+    def watchYoutube(self):
+        print("Watching Youtube...")
+
+# person.py
+
+from smartphone import Smartphone
+
+class Person:
+
+    def __init__(self.smartphone: Smartphone):
+        self.__smartphone = smartphone
+
+    def orderPizza(self):
+        print("pickng up the smartphone...")
+        print("defining pizza flavor...")
+        self.__smartphone.sendMessage("I want a pepperoni pizza.")
+        print("waiting for the pizza to arrive...")
+
+
+# main.py
+
+from person import Person
+from smartphone import Smartphone
+
+smartphone1 = Smartphone("Samsung")
+smartphone2 = Smartphone("Apple")
+
+person1 = Person(smartphone1) # A person only exists if they have a smartphone
+person2 = Person(smartphone2) # Try removing your smartphone: an error willl occur
+
+person1orderpizza()
+print()
+person2.study()
+
+
+
+
+
+# connectorDB.py
+
+class ConnectorDB:
+
+    def __init__(self):
+        self._connection = None
+
+    def connectToDB(self):
+        self.__connection = True
+
+# repositoryDB.py
+
+from connectorDB import ConnectorDB
+
+class RepositoryDB:
+
+    def __init__(self, connector: ConnectorDB):
+        self.__connector = connector
+
+    def searchData(self):
+        if self.__connector.connection:
+            return[1,2,3,4,5]
+        return None
+
+# businessRule.py
+
+from repositoryDB import RepositoryDB
+
+class BusinessRule:
+
+    def __init__(self, repository: RepositoryDB):
+        self.__repository = repository
+
+    def calculateResults(self):
+        data = self.__repository.searchData() 
+        if not data:
+            print("Data not found. Check your connection to the BD")
+        else:
+            answer = 0
+            for item in data:
+                answer += item
+            print(f"Result: {answer}")
+
+# main.py
+
+from connectorDB import ConnectorDB
+from repositoryDB import RepositoryDB
+from businessRule import BusinessRule
+
+myConnection = ConnectorDB()
+myConnection.connectToDB() # try commenting this line
+
+myRepository = RepositoryDB(myConnection)
+
+myBusinessRule = BusinessRule(myRepository)
+myBusinessRule.calculateResults()
