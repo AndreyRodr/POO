@@ -1,0 +1,53 @@
+# Motivação e conceitos
+
+- Definição:
+  - É quando uma classe transmite atributos ou métodos para outra classe
+- É uma relação "é um tipo de"
+  - Uma casa "é um tipo de" moradia
+
+- Motivação para Herança
+  - Nova classe baseada em outra classe
+  - Ter uma classe aprimorada
+  - Economizar tempo de desenvolvimento
+  - Aproveitar código testado e depurado
+
+- Conceitos
+  - Superclasse
+    - Classe mais genérica
+  - Subclasse
+    - Classe mais específica
+    - Herda atributos e métodos de super ancestrais
+  - Relacionamento "é um": carro e veículo
+
+- Herança
+  - Especialização
+    - Do mais geral para o mais específico
+    - Classe pai -> classe filha
+  - Generalização
+    - Do mais específico para o mais geral
+    - Classe filha -> classe pai
+
+# O que a subclasse pode fazer
+
+- Ter seus próprios atributos e métodos
+- Ter outras subclasses
+- Exibir comportamentos da superclasse
+- Mudar comportamentos da superclasse
+  - Sobrescrever métodos-
+
+# Herança em Python
+
+- Funcionamento
+  - No topo de uma hierarquia está a classe mais geral dos objetos. Qualquer classe é extensível
+  - Sintaxe:
+    class <nome da classe>(<nome da classe pai existente>)
+  - Ex:
+    class TwoDimensionalShape(Shape):
+
+- Chamando método na superclasse
+  - Use o nome da superclasse como um prefixo para o método
+- Classe Object
+  - Classe pai de nível superior de todas as classes
+- Localização dos métodos
+  - Métodos com comportamento mais geral devem estar mais acima na hierarquia de classes
+
