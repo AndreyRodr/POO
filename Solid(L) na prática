@@ -1,0 +1,57 @@
+# person.py file
+
+class Person:
+    def present(self):
+        print("Hi, I am the person.")
+
+# main.py file
+from person import Person
+from otherPerson import OtherPerson
+
+thePerson = Person()
+thePerson.present()
+
+otherPerson = OtherPerson()
+otherPerson.present()
+
+### polymorphism is a BREAK for LSP!
+
+# new main.py file
+
+from person import Person
+
+thePerson = Person()
+thePerson.present()
+
+def present():
+    print("I'm changing this method...")
+
+thePerson.present = present()
+# similar methods with different behaviors
+
+# otherPerson.py file
+
+from person import Person
+
+class OtherPerson(Person):
+    def __init__(self):
+        super().__init__()
+
+    def present(self):
+        print("I'm changing this method...")
+
+# main.py file
+from person import Person
+from otherPerson import OtherPerson
+
+thePerson = Person()
+thePerson.present()
+
+otherPerson = OtherPerson()
+otherPerson.present()
+
+### polymorphism is a BREAK for LSP!
+
+# Implicação imediata
+  - Herança é uma complementação
+    - Não faz sentido criar vários métodos redundantes.
