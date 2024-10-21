@@ -1,0 +1,64 @@
+# animal.py file
+class Animal:
+    def eat(self):
+        print("The animal is eating...")
+
+    def sleep(self):
+        print("The animal is sleeping...")
+
+    def walk(self):
+        print("The animal is walking...")
+
+# bird.py
+
+from animal import Animal
+
+class Bird(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def sing(self):
+        print("The bird is singing")
+
+# penguim.py file
+
+from bird import Bird
+
+class Penguim(Bird):
+    def __init__(self):
+        super().__init__()
+
+    def slide(self)
+        print("The penguin is sliding...")
+
+# person.py file
+
+from typing import Type
+from animal import Animal
+
+class Person():
+    def observe(self, animal: Type[Animal]):
+        animal.eat()
+
+# main.py file
+
+from person import Person
+from animal import Animal
+from bird import Bird
+from penguim import Penguim
+
+theScientist = Person()
+wildAnimal = Animal()
+wildBird = Bird()
+wildPenguim = Penguim()
+
+theScientist.observe(wildAnimal)
+theScientist.observe(wildBird)
+theScientist.observe(wildPenguim)
+
+# The behavior of an inherited object does not change
+# LSP checked!
+
+# Implicação imediata do LSP
+  - Elementos mais genéricos no topo
+from 
