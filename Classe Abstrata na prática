@@ -1,0 +1,112 @@
+# absClass.py file
+
+class AbsClass():
+    def __init__(self):
+        self.atribute = "Hello, world!"
+
+    def method(self, element):
+        print(element)
+
+    def abstractMethod(self):
+        pass
+
+# daughterClass.py file
+
+from absClass import AbsClass
+
+class DaughterClass(AbsClass):
+    def presentMethod(self):
+        print(self.atribute)
+
+# main.py file
+
+from absClass import AbsClass
+from daughterClass import DaughterClass
+
+myDaughterCls = DaughterClass()
+myDaughterCls.presentMethod()
+myDaughterCls.method("I'm here")
+
+myAbstractCls = AbsClass()
+myAbstractCls.method("Doing something")
+
+
+# NEW
+
+# new absClass.py file
+
+from abc import ABC, abstractmethod
+
+class AbsClass(ABC): 
+    def __init__(self):
+        self.atribute = "Hello, world!"
+
+    def method(self, element):
+        print(element)
+
+    def abstractMethod(self):
+        pass
+
+# new daughterClass.py
+
+from absClass import AbsClass
+
+class DaughterClass(AbsClass):
+    def presentMethod(self):
+        print(self.atribute)
+
+    def abstractMethod(self):
+        print('Implementing abstract method')
+
+# new main.py
+
+from absClass import AbsClass
+from daughterClass import DaughterClass
+
+myDaughterCls = DaughterClass()
+myDaughterCls.presentMethod()
+myDaughterCls.method("I'm here")
+myDaughterCls.abstractMethod()
+
+myAbstractCls = AbsClass()
+myAbstractCls.method("Doing something")       # Nada muda: em Python, toda classe abstrata precisa ter pelo menos um método abstrato
+
+
+# new absClass.py 2
+from abc import ABC, abstractmethod
+
+class AbsClass(ABC): 
+    def __init__(self):
+        self.atribute = "Hello, world!"
+
+    def method(self, element):
+        print(element)
+
+    @abstractmethod
+    def abstractMethod(self):
+        pass
+
+# new main.py 2
+
+
+from absClass import AbsClass
+from daughterClass import DaughterClass
+
+myDaughterCls = DaughterClass()
+myDaughterCls.presentMethod()
+myDaughterCls.method("I'm here")
+myDaughterCls.abstractMethod()
+
+# myAbstractCls = AbsClass() # Error: cannot instantiate
+# myAbstractCls.method("Doing something")   
+
+# new daughterClass.py 2
+
+from absClass import AbsClass
+
+class DaughterClass(AbsClass):
+    def presentMethod(self):
+        print(self.atribute)
+
+  # def abstractMethod(self):
+  #     print("Implementing abstract method")      # Erro indicando a necessidade de implementar o método na classe filha
