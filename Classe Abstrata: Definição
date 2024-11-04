@@ -1,0 +1,37 @@
+Definição de classe abstrata:
+  - É um tipo especial de classe que não pode ser instanciada 
+  - Ela serve como uma estrutura base para outras classes derivadas
+  - A classe abstrata define métodos e atributos que devem ser implementados nas classes filhas
+
+Módulo abc e Classe ABC
+
+- Python
+  - Uma classe abstrata é definida utilizando o módulo <abc> e a classe <ABC> como base
+  - Para declarar uma classe abstrata, é necessário decorá-la com o decorator @abstractmethod
+  - Isso indica que os métodos decorados devem ser implementados nas classes filhas
+
+# Método e classe abstratos
+- Classe abstrata
+  - Pode ter um ou mais métodos abstratos
+  - Pode ter métodos concretos (com implementação), que podem ser sobrescritos em classes filhas
+
+- Implementação de método abstrato
+  - Define-se o método com o mesmo nome e assinatura na classe filha
+  - A implementação do método fica na classe filha
+
+# Motivos para classes abstratas
+  - Definição de interface comum
+    - Permitem definir interface comum para as classes
+        # Facilita a comunicação e compartilhamento de código
+  - Obrigatoriedade de implementação
+    - Métodos abstratos DEVEM ser implementados em classses filhas
+        # Garante que cada classe filha tenha a implementação necessária, evitando erros e garantindo código robusto
+  - Organização do código
+    - Ajuda a organizar código de forma hierárquica, agrupando classes relacionadas
+        # Facilita a compreensão e manutenção do código
+  - Flexibilidade e extensibilidade
+    - Permite que novas classes filhas sejam adicionadas à hierarquia sem alterar a estrutura existenta
+        # Torna o código mais flexível e extensível, permitindo a adição de novas funcionalidades de forma modular
+  - Reutilização de código
+    - Ao definir uma classe abstrata com métodos e atributos comuns, é possível reutilizar esse código em várias classes filhas
+    - Evita a duplicação de código e promove a reutilização, economizando tempo e esforço de desenvolvimento
