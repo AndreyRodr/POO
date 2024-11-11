@@ -1,0 +1,74 @@
+Construção da ideia de interface
+
+- Apresentar a herança múltipla
+- Mostrar um problema sério
+- Ver soluções não recomendadas
+- Demonstrar a interface como solução
+
+# Sistema de controle do Banco
+
+class Diretor(Funcionario):              # Sistema acessado por Gerentes e Diretores do Banco
+    def autentica(self, senha):
+        # confere a senha
+
+class Gerente(Funcionario):              # Note que o método de autenticação pode variar entre os funcionários
+    def autentica(self, senha):
+        # confere a senha e se o seu departamento tem acesso
+
+# Problema 1:
+- Sistema interno e seu controle
+  - Receber um funcionário, verificar se ele se autentica e colocá-lo dentro do sistema
+
+class SistemaInterno:
+    def login(self, funcionario):
+        if (hasattr(obj,'autentica')):
+            # chama método autentica
+        else:
+            # imprime mensagem de ação inválida
+
+# Problema 2:
+- Onde colocar o método autentica()?
+  - Manter em cada tipo de funcionário, replicar código e correr o risco de esquecer?
+
+  - Talvez na classe Funcionario?
+    - E se houver funcionário não autenticável?
+
+  - Solução:
+    - Classe FuncionarioAutenticavel no meio da herança
+
+
+# sistema p/ clientes e funcionários
+class Autenticavel:
+    def autentica(self, senha):
+        # verifica se a senha confere
+
+class Gerente(Funcionario, Autenticavel):
+    # código omitido
+
+class Diretor(Funcionario, Autenticavel):
+    # código omitido
+
+class Cliente(Autenticavel):
+    # código omitido
+
+
+
+class SistemaInterno:
+
+  def login(self, obj):
+      if (hasattr(obj,'autentica')):
+          obj.autentica()
+          return True
+      else:
+          print('{} sem acesso'.format(self.__class__.__name__))
+          return False
+
+if __name__ == '__main__':
+    diretor = Diretor('Joao', '111111111-11', 3000.0, '1234')
+    gerente = Gerente(..)
+    cliente = Cliente(..)
+
+    sistema = SistemaInterno()
+    sistema.login(diretor)
+    sistema.login(gerente)
+    sistema.login(cliente)
