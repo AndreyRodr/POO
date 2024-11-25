@@ -1,0 +1,9 @@
+* Definição:
+  - É quando um objeto colabora com o outro, mas este objeto NÃO é obrigatório. Um objeto é parte de outro
+
+* Relação "todo/parte" e "possui um"
+  - Uma empresa "possui um" departamento
+
+* Objetivo:
+  - AGREGAR numa certa classe, objetos de outra classe
+
