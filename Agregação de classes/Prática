@@ -1,0 +1,53 @@
+# product.py file
+class Product:
+    def __init__(self, name, value):
+        self.__name = name
+        self.__value = value
+        
+    def productInformation(self):
+        print(f"Product: {self.__name} / Value: R$ {self.__value:.2f}")
+
+    def getPrice(self):
+        return self.__value
+
+# shoppingCart.py file
+from typing import Type
+from product import Product
+
+class ShoppingCart:
+    def __init__(self):
+        self.__products = []
+
+    def addProduct(self, product: Type[Product]):
+        self.__products.append(product)
+
+    def finalizePurchase(self):
+        print("Completed purchase!")
+
+
+        for product in self.__products:
+            product.productInformation()
+
+        self.printTotalPrice()
+        
+        self.__products = []
+
+    def printTotalPrice(self):
+        total_price = sum(product.getPrice() for product in self.__products) 
+        print(f"Total Price: {total_price}")
+
+# main.py file
+
+from product import Product
+from shoppingCart import ShoppingCart
+
+myPurchase = ShoppingCart()
+item1 = Product("Parboiled Rice", 4.97)
+item2 = Product("Carioca Bean", 5.13)
+item3 = Product("Talharini Pasta", 3.99)
+
+myPurchase.addProduct(item1)
+myPurchase.addProduct(item2)
+myPurchase.addProduct(item3)
+
+myPurchase.finalizePurchase()
