@@ -1,0 +1,79 @@
+# itemsInterface.py file
+from abc import ABC, abstractmethod
+
+class ItemsInterface(ABC):
+
+    @abstractmethod
+    def itemInformation(self):
+        pass
+
+# product.py file
+from itemsInterface import ItemsInterface
+
+class Product(ItemsInterface):
+    def __init__(self, name, value):
+        self.__name = name
+        self.__value = value
+
+    def itemInformation(self):
+        print(f"Product: {self.__name} / Value: R$ {self.__value:.2f}")
+
+    def getPrice(self):
+        return self.__value
+
+# service.py file
+from itemsInterface import ItemsInterface
+
+class Service(ItemsInterface):
+    def __init__(self, name, value):
+        self.__name = name
+        self.__value = value
+
+    def itemInformation(self):
+        print(f"Service: {self.__name} / Value: R$ {self.__value:.2f}")
+
+    def getPrice(self):
+        return self.__value
+
+# shoppingCart.py file
+from typing import Type
+from itemsInterface import ItemsInterface
+
+class ShoppingCart:
+    def __init__(self):
+        self.__items = []
+
+    def addItem(self, Item: Type[ItemsInterface]):
+        self.__items.append(Item)
+
+    def finalizePurchase(self):
+        print("Completed purchase!")
+
+
+        for item in self.__items:
+            item.itemInformation()
+
+        self.printTotalPrice()
+        
+        self.__items = []
+
+    def printTotalPrice(self):
+        total_price = sum(product.getPrice() for product in self.__items)
+        print(f"Total Price: R${total_price}")
+
+# main.py file
+from product import Product
+from service import Service
+from shoppingCart import ShoppingCart
+
+myPurchase = ShoppingCart()
+
+item1 = Product("Air filter", 49.70)
+item2 = Product("Fuel Filter", 52.30)
+item3 = Service("Maintenance", 200.00)
+
+myPurchase.addItem(item1)
+myPurchase.addItem(item2)
+myPurchase.addItem(item3)
+
+myPurchase.finalizePurchase()
