@@ -1,0 +1,44 @@
+# pasta sqlActions: insert.py file
+
+class Insert:
+    def insertMany(self):
+        print("Inserting many...")
+
+    def InsertOne(self):
+        print("Inserting one...")
+
+# pasta sqlActions: select.py file
+
+class Select:
+    def selectMany(self):
+        print("Selecting many...")
+
+    def selectOne(self):
+        print("Selecting One...")
+
+# pasta sqlActions: __init__.py file
+
+from .insert import Insert
+from .select import Select
+
+# repository.py file
+
+from sqlActions.insert import Insert
+from sqlActions.select import Select
+
+class Repository:
+    def __init__(self):
+        self.__insert = Insert()
+        self.__select = Select()
+
+    def selectByID(self):
+        self.__select.selectOne()
+
+# main.py file
+
+from repository import Repository
+
+myRepository = Repository()
+
+myRepository.selectByID()
+
