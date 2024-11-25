@@ -1,0 +1,10 @@
+* Definição:
+  - É quando um objeto colabora com o outro, mas este objeto É obrigatório. Um objeto é parte de outro.
+
+* Relação "todo/parte" e "possui um"
+  - Uma empresa "possui um" departamento
+
+* Objetivo:
+  - COMPOR uma classe, a partir de outras classes
+
+ex: um computador é formado por seus componentes, como por exemplo: placa mãe, gabinete, hd, memória, processador, etc. Sem todas essas peças não existe computador
